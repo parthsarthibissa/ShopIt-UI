@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "287747904201",
+    "project_id": "prototypekart-ef6f7",
+    "storage_bucket": "prototypekart-ef6f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287747904201:android:9c73af6b4d723c0ba3f318",
+        "android_client_info": {
+          "package_name": "com.parth.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "287747904201-8lk8s181pv81uv5r1s474fs5rehq21e7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7vNVnautfK9MyWRUJxqwybDZXobMQcbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "287747904201-8lk8s181pv81uv5r1s474fs5rehq21e7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
