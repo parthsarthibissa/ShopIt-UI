@@ -23,16 +23,21 @@ class _HeaderState extends State<Header> {
       alignment: Alignment.centerLeft,
       height: DeviceSizeConfig.screenHeight * 0.08,
       width: DeviceSizeConfig.screenWidth,
-      constraints: BoxConstraints(
-          maxWidth: DeviceSizeConfig.screenWidth,
-          minWidth: DeviceSizeConfig.screenWidth - 200),
+      padding: EdgeInsets.all(10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          MyTextStyle(
+         MyTextStyle(
             text: 'ShopIt!',
             bold: 'yes',
+            color: Colors.purple,
           ),
+          Spacer(),
+          Icon(Icons.search),
+          SizedBox(
+width: 20,
+          ),
+          Icon(Icons.settings)
         ],
       ),
     );
