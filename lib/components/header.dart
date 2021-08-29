@@ -24,20 +24,27 @@ class _HeaderState extends State<Header> {
       height: DeviceSizeConfig.screenHeight * 0.08,
       width: DeviceSizeConfig.screenWidth,
       padding: EdgeInsets.all(10),
+      
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-         MyTextStyle(
-            text: 'ShopIt!',
-            bold: 'yes',
-            color: Colors.purple,
-          ),
+         RichText(text: TextSpan(
+           children: [
+             TextSpan(
+               text: 'Shop',style: TextStyle(color: Colors.white,fontSize: 30)
+             ),
+             TextSpan(
+               text: 'Rigs',
+               style: TextStyle(color: Color(0xff009ffd),)
+             )
+           ]
+         )),
           Spacer(),
-          Icon(Icons.search),
+          Icon(Icons.search,color: Colors.white,),
           SizedBox(
 width: 20,
           ),
-          Icon(Icons.settings)
+          Icon(Icons.settings,color: Colors.white,)
         ],
       ),
     );

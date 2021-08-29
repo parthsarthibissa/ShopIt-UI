@@ -16,9 +16,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    TabController _tabController = TabController(
+    _tabController = TabController(
       length: 3,
-      initialIndex: 1,
+      initialIndex: 2,
       vsync: this,
     );
   }
@@ -26,42 +26,56 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     DeviceSizeConfig().init(context);
-    return Column(
-      children: [
-        Header(),
-        SingleChildScrollView(
-          child: Row(
+    return Container(
+      color: Colors.black,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Column(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  color: Colors.white,
-                ),
-                height: DeviceSizeConfig.screenHeight / 1.5,
-                width: DeviceSizeConfig.screenWidth / 4,
-                child: TabBar(
-                  controller: _tabController,
-                  tabs: [
-                    MyTextStyle(
-                      text: 'Budget',
-                      color: Colors.black,
+              Header(),
+              Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                      color: Colors.black45
+                      ),
+                      
+                      height: DeviceSizeConfig.screenHeight-170,
+                      width: DeviceSizeConfig.screenWidth / 4,
+                      child: RotatedBox(
+                        quarterTurns: 3,
+                        child: TabBar(
+                          controller: _tabController,
+                          tabs: [
+                            MyTextStyle(
+                              text: 'High-End',
+                              color: Colors.white,
+                            ),
+                            MyTextStyle(text: 'Mid-Range', color: Colors.white),
+                            MyTextStyle(text: 'Budget-Range',color: Colors.white),
+                          ],
+                        ),
+                      ),
                     ),
-                    MyTextStyle(text: 'Mid-Range', color: Colors.black),
-                    MyTextStyle(text: 'High-End', color: Colors.black),
+                    Container(
+                      height: DeviceSizeConfig.screenHeight-170,
+                      width: DeviceSizeConfig.screenWidth-100,
+                      child: TabBarView(
+                        controller: _tabController,
+                        children: [
+                        HighEndCollection(),
+                        MidRangeCollection(),
+                        BudgetCollection()
+                      ]),
+                    ),
+                    
                   ],
                 ),
-              ),
-              TabBarView(
-                controller: _tabController,
-                children: [
-                HighEndCollection(),
-                MidRangeCollection(),
-                BudgetCollection()
-              ]),
             ],
           ),
         ),
-      ],
+      ),
     );
   }
 }
