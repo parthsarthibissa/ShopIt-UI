@@ -26,56 +26,39 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     DeviceSizeConfig().init(context);
-    return Container(
-      color: Colors.black,
-      child: SafeArea(
+    return  SafeArea(
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
               Header(),
-              Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                      color: Colors.black45
-                      ),
-                      
-                      height: DeviceSizeConfig.screenHeight-170,
-                      width: DeviceSizeConfig.screenWidth / 4,
-                      child: RotatedBox(
-                        quarterTurns: 3,
-                        child: TabBar(
-                          controller: _tabController,
-                          tabs: [
-                            MyTextStyle(
-                              text: 'High-End',
-                              color: Colors.white,
+              TabBar(
+                              controller: _tabController,
+                              tabs: [
+                                MyTextStyle(
+                                  text: 'High-End',
+                                  color: Colors.white,
+                                ),
+                                MyTextStyle(text: 'Mid-Range', color: Colors.white),
+                                MyTextStyle(text: 'Budget-Range',color: Colors.white),
+                              ],
                             ),
-                            MyTextStyle(text: 'Mid-Range', color: Colors.white),
-                            MyTextStyle(text: 'Budget-Range',color: Colors.white),
-                          ],
-                        ),
+                      
+                    Expanded(
+                        child: TabBarView(
+                            controller: _tabController,
+                            children: [
+                            HighEndCollection(),
+                            MidRangeCollection(),
+                            BudgetCollection()
+                          ]),
                       ),
-                    ),
-                    Container(
-                      height: DeviceSizeConfig.screenHeight-170,
-                      width: DeviceSizeConfig.screenWidth-100,
-                      child: TabBarView(
-                        controller: _tabController,
-                        children: [
-                        HighEndCollection(),
-                        MidRangeCollection(),
-                        BudgetCollection()
-                      ]),
-                    ),
-                    
-                  ],
-                ),
+                        
+                
+              
             ],
           ),
         ),
-      ),
     );
   }
 }
